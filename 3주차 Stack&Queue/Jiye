@@ -1,0 +1,25 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+
+int main() {
+	int n, e,last,sum = 1;
+	cin >> n;
+	stack<int> stack;
+	for(int i = 0; i < n;i++){
+		cin >> e;
+		stack.push(e);
+	}
+	last = stack.top();
+	stack.pop();
+
+	for (int i = 0; i < n-1; i++) {
+		if (stack.top() > last) {
+			sum++;
+			last = stack.top();
+		}
+		stack.pop();
+	}
+	cout << sum;
+}
